@@ -10,12 +10,16 @@ class ImportModel
 {
     // chargement d'un fichier excel
     
+    // phpExcel
     public $phpExcel;
+    // selected sheet
+    public $selectedSheet;
     
     function __construct($file)
     {
         if($file != null)
              $this->phpExcel = PHPExcel_IOFactory::load($file);
+ 
     }
     
     function getSheetNames()
@@ -31,28 +35,46 @@ class ImportModel
             return $this->phpExcel->getSheetCount();
     }
     
+    // selectionne le sheet actif
+    public function setSelectedActiveSheet($sheetName)
+    {
+        if($this->phpExcel != null)
+             $this->selectedSheet = $this->phpExcel->getSheetByName($sheetName);
+
+    }
     
     // retourne un tableau comprennant le nom des labels dans la premiere ligne
-    function getLabelNamesBySheet($sheetName)
+    public function getLabelNamesBySheetActive()
     {
-        if($sheetName == null)
+        if($this->selectedSheet == null)
             return;
         
-        $sheet = $this->phpExcel->getSheetByName($sheetName);
-        if($sheet != null)
-        {
-                     
-           $dimension = $sheet->getRowDimension(1);
-           
-           $listLabels = array($dimension->getRowIndex());
-           
-           for($i = 0;$i <= $dimension->getRowIndex() ;$i++)
-           {
-               $listLabels[$i] = $sheet->getCellByColumnAndRow($i,1);
-           }
-        }
+        $it = $this->selectedSheet->getRowIterator();
+        $it->rewind();
+        $row = $it->current();       
+        $celIt = $row->getCellIterator();
+        $celIt->rewind();
+        $i = 0;
         
-        return $listLabels;
+        $listLabels = array();
+        while($celIt->valid())
+        {
+            $listLabels[$i] = $celIt->current();
+            $celIt->next();
+            $i++;
+        }
+       
+       return $listLabels;
+    }
+    
+    // retourne la liste des text des cellules de la colone passée en parametre
+    public function getListTextByColumn($numColumn)
+    {
+        if($this->selectedSheet == null)
+            return;
+        
+        // je cherche à obtenirle nombre de row
+        
     }
     
     
