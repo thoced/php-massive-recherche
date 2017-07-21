@@ -13,7 +13,13 @@ require_once  '../Models/ModelDbKeyWordHelper.php';
 
 session_start();
 // reception du fichier Excel
-$modelImport = new ImportModel("../demo.xls");
+
+if($_FILES['fileExcel']['error'] > 0)
+    echo "Erreur lors du transfert";
+
+$listExcel = $_FILES['fileExcel']['tmp_name'];
+
+$modelImport = new ImportModel($listExcel);
 
 // réception de la liste des sheets
 $listSheets = $modelImport->getSheetNames();
