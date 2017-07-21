@@ -12,13 +12,31 @@ and open the template in the editor.
     <body>
         
         <h1> Massive Analyser </h1><br>
-        
-        Veuillez sélectionner le fichier à analyser <br>
-
-        <form action="./Controllers/SelectSheetController.php" methode="POST" enctype="multipart/form-data">
-        <input type="file" name="file_analyser"></input>
-        <input type="submit">
-        </form>
-        
+    <div style="border-width: 4px;border-color: red;border-radius: 8px;border-style: solid;">
+        <form action="./Controllers/SelectSheetController.php" method="POST" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>Veuillez sélectionner le fichier à analyser </td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td>  Fichier extraction GSM (format Excel) </td>
+                <td> <input type="file" name="fileExcel"></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td>  Fichier de mots clés (format Texte) </td>
+                <td> <input type="file" name="fileKeyWord"></td>
+            </tr>
+             <tr>
+                <td><input type="submit" ></td>
+            </tr>
+        </table>
+              </form>
+    </div>
 
 
