@@ -1,7 +1,7 @@
 
 Veuillez sélectionner le label sur lesquel les recherches doivent être réalisées<br><br>
 Onglets : 
-<form action="../Controllers/GetTextController.php" method="POST">
+<form action="../Controllers/ComputeSearchController.php" method="POST">
 <select size="10" name="labelKey">
 <?php
     while($label = current($listLabels))
