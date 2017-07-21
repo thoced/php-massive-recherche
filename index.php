@@ -15,12 +15,10 @@ and open the template in the editor.
         
         Veuillez sélectionner le fichier à analyser <br>
 
-        <form action="index2.php" methode="POST" enctype="multipart/form-data">
+        <form action="./Controllers/SelectSheetController.php" methode="POST" enctype="multipart/form-data">
         <input type="file" name="file_analyser"></input>
         <input type="submit">
         </form>
-        <?php
-/** Include PHPExcel */
-require_once dirname(__FILE__) . '/../Classes/PHPExcel.php';
+        
 
 
