@@ -54,15 +54,15 @@ class ImportModel
         $row = $it->current();       
         $celIt = $row->getCellIterator();
         $celIt->rewind();
-        $i = 0;
+      
         
         $listLabels = array();
         while($celIt->valid())
         {
             
-            $listLabels[$i] = $celIt->current();
+            $listLabels[$celIt->key()] = $celIt->current();
             $celIt->next();
-            $i++;
+           
         }
        
        return $listLabels;
