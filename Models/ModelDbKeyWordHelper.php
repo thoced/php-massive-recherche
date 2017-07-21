@@ -11,14 +11,14 @@ class ImportDbKeyWord
     // handle du fichier
     public $handleFile;
     
-    public $listContenuParLine;
+    public $listKeyword;
     
     function __construct($file)
     {
         if($file == null)
             return;
        // lecture du fichier
-       $this->listContenuParLine = file($file);
+       $this->listKeyword = file($file);
 
     }
     
