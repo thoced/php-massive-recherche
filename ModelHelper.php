@@ -59,6 +59,7 @@ class ImportModel
         $listLabels = array();
         while($celIt->valid())
         {
+            
             $listLabels[$i] = $celIt->current();
             $celIt->next();
             $i++;
@@ -68,13 +69,36 @@ class ImportModel
     }
     
     // retourne la liste des text des cellules de la colone passée en parametre
-    public function getListTextByColumn($numColumn)
+    public function getListTextByColumn($startColumn)
     {
         if($this->selectedSheet == null)
             return;
         
-        // je cherche à obtenirle nombre de row
+        //instance
+        $listText = array();
         
+         $this->selectedSheet = $this->phpExcel->getSheetByName("toto");
+        // je cherche à obtenirle nombre de row
+         $itRow = $this->selectedSheet->getRowIterator();
+         $itRow->rewind(); // premiere row
+         $itRow->next();   // on passe à la seconde ligne pour ne pas copier les labels de la premiere ligne
+               
+         while($itRow->valid())
+         {
+             $row = $itRow->current();
+             $cellIt = $row->getCellIterator($startColumn,$startColumn);
+             $cellIt->rewind();
+             while($cellIt->valid())
+             {
+                 $c = $cellIt->current();
+                 $listText[$itRow->key()]= $c->getValue();   
+                 $cellIt->next();
+             }
+
+             $itRow->next();
+         }
+
+         return $listText;
     }
     
     
