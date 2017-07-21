@@ -18,7 +18,6 @@ $m = $_SESSION['ImportModel'];
 $modelImport = unserialize($m);
 
 // récupération de la liste des textes
-echo "labelkeyselected : " . $labelKeySelected;
 $listText = $modelImport->getListTextByColumn($labelKeySelected);
 
 if($listText != null)
