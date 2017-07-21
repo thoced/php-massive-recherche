@@ -36,8 +36,7 @@ $id = 0;
 {
     foreach($listKeyword as $keyword)
     {
-        $p = stripos(trim($text),trim($keyword));
-        if($p !==  false)
+        if(stripos(trim($text),trim($keyword)) !==  false)
         {
             // le keyword est trouvé dans la chaine
             $result = new ModelResult();
