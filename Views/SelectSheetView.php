@@ -1,7 +1,7 @@
 
-Veuillez sélectionner l'onglet sur lesquels les recherches doivent être réalisées<br><br>
+Veuillez sélectionner l'onglet sur lesquel les recherches doivent être réalisées<br><br>
 Onglets : 
-<form action="../Controllers/SelectColumnController.php" type="POST">
+<form action="../Controllers/SelectColumnController.php" method="POST">
 <select name="sheet">
 <?php
     foreach($listSheets as $sheet)
