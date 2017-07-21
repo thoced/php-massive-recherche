@@ -15,18 +15,31 @@ session_start();
 // reception du fichier Excel
 
 if($_FILES['fileExcel']['error'] > 0)
-    echo "Erreur lors du transfert";
+    echo "Erreur lors du transfert (Extraction)";
 
-$listExcel = $_FILES['fileExcel']['tmp_name'];
+// reception du fichier keyword
+if($_FILES['fileKeyWord']['error'] > 0)
+    echo "Erreur lors du transfert (KeyWord)";
 
-$modelImport = new ImportModel($listExcel);
+$fileExcel = $_FILES['fileExcel']['tmp_name'];
+
+$listKeyWord = $_FILES['fileKeyWord']['tmp_name'];
+
+// création du model d'import du fichier excel
+$modelImport = new ImportModel($fileExcel);
+// création du model d'import du fichier KeyWord
+$modelKeyWord = new ImportDbKeyWord($listKeyWord);
 
 // réception de la liste des sheets
 $listSheets = $modelImport->getSheetNames();
 
-// serialisatin et passage de l'objet dans la session
+// serialisatin et passage des objets dans la session
 $m = serialize($modelImport);
 $_SESSION['ImportModel'] = $m;
+
+$mk = serialize($modelKeyWord);
+$_SESSION['ImportDbKeyWord'] = $mk;
+
 
 // appel à la vue
 require '../Views/SelectSheetView.php';
