@@ -14,22 +14,29 @@ class ImportModel
     public $phpExcel;
     // selected sheet
     public $selectedSheet;
+    // name file
+    public $nameFile;
     
-    function __construct($file)
+       
+    public  function __construct($file)
     {
         if($file != null)
+        {
              $this->phpExcel = PHPExcel_IOFactory::load($file);
- 
+             $this->nameFile = $file;
+        }
+        
     }
-    
-    function getSheetNames()
+
+    public function getSheetNames()
     {
         // retour la liste des sheet
         if($this->phpExcel != null)
           return $this->phpExcel->getSheetNames();
+       
     }
     
-    function getSheetCount()
+    public function getSheetCount()
     {
         if($this->phpExcel != null)
             return $this->phpExcel->getSheetCount();
@@ -54,12 +61,11 @@ class ImportModel
         $row = $it->current();       
         $celIt = $row->getCellIterator();
         $celIt->rewind();
-      
-        
+
         $listLabels = array();
         while($celIt->valid())
         {
-            
+           
             $listLabels[$celIt->key()] = $celIt->current();
             $celIt->next();
            
@@ -100,7 +106,8 @@ class ImportModel
 
          return $listText;
     }
-    
-    
+
+   
+
 }
 
