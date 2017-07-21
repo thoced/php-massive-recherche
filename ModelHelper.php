@@ -68,7 +68,7 @@ class ImportModel
        return $listLabels;
     }
     
-    // retourne la liste des text des cellules de la colone passée en parametre
+    // retourne la liste des text des cellules de la colone passée en parametre 
     public function getListTextByColumn($startColumn)
     {
         if($this->selectedSheet == null)
@@ -77,7 +77,7 @@ class ImportModel
         //instance
         $listText = array();
         
-         $this->selectedSheet = $this->phpExcel->getSheetByName("toto");
+         //$this->selectedSheet = $this->phpExcel->getSheetByName("toto");
         // je cherche à obtenirle nombre de row
          $itRow = $this->selectedSheet->getRowIterator();
          $itRow->rewind(); // premiere row
