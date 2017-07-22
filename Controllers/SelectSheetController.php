@@ -37,6 +37,10 @@ $modelImport = new ImportModel($fileExcel);
 // création du model d'import du fichier KeyWord
 $modelKeyWord = new ImportDbKeyWord($listKeyWord);
 
+// les fichiers ont été importés, suppression des fichiers 
+unlink($fileExcel);
+unlink($listKeyWord);
+
 // réception de la liste des sheets
 $listSheets = $modelImport->getSheetNames();
 // reception de la liste des keyword
