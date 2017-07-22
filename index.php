@@ -12,7 +12,7 @@ and open the template in the editor.
     <body>
         
         <h1> Massive Analyser </h1><br>
-    <div style="border-width: 4px;border-color: red;border-radius: 8px;border-style: solid;">
+    <div style="border-width: 4px;border-color: #5499c7;border-radius: 8px;border-style: solid; background-color:#eaf2f8;">
         <form action="./Controllers/SelectSheetController.php" method="POST" enctype="multipart/form-data">
         <table>
             <tr>
