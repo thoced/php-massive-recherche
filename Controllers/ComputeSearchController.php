@@ -11,7 +11,16 @@ require_once  '../Models/ModelDbKeyWordHelper.php';
 require_once  '../Models/ModelResult.php';
 
 // réception du label sélectionné
-$labelKeySelected = $_POST["labelKey"];
+if(isset($_POST["labelKey"]))
+{
+    $labelKeySelected = $_POST["labelKey"];
+}
+else
+{
+    $errno = "Erreur dans la sélection du label, veuillez recommencer";
+    include '../Views/ErrorView.php';
+    die;
+}
 
 session_start();
 // récupération de l'objet ImportModel

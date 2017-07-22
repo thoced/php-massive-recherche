@@ -13,7 +13,16 @@ require_once  '../Models/ModelHelper.php';
 require_once  '../Models/ModelDbKeyWordHelper.php';
 
 // réception du sheet sélectionné
-$sheetSelected = $_POST["sheet"];
+if(isset($_POST["sheet"]))
+{
+    $sheetSelected = $_POST["sheet"];
+}
+else
+{
+    $errno = "Erreur dans la sélection de l'Onglet, veuillez recommencer";
+    include '../Views/ErrorView.php';
+    die; 
+}
 
 session_start();
 $m = $_SESSION['ImportModel'];

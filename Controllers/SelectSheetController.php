@@ -15,7 +15,11 @@ session_start();
 // reception du fichier Excel
 
 if($_FILES['fileExcel']['error'] > 0)
-    echo "Erreur lors du transfert (Extraction)";
+{
+    $errno = "Erreur de transfert du fichier à exploiter, veuillez choisir un fichier ou choisir un fichier non corrompu";
+    include '../Views/ErrorView.php';
+    die;
+}
 
 // reception du fichier keyword
 if($_FILES['fileKeyWord']['error'] > 0)
