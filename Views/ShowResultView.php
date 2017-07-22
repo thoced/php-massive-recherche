@@ -24,3 +24,6 @@
 ?>
 </table>
 </div>
+<br>
+<br>
+<a href="../index.php">Faire une nouvelle recherche</a>
