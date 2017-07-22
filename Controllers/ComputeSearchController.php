@@ -35,7 +35,14 @@ $mk = $_SESSION['ImportDbKeyWord'];
 $modelKeyWord = unserialize($mk);
 
 // récupération de la liste des mots clés
-$listKeyword = $modelKeyWord->listKeyword;
+ $listKeyword = $modelKeyWord->listKeyword;
+ 
+    if($listKeyword == null || sizeof($listKeyword) == 0)
+    {
+        $errno = "Aucune liste de mot clé n'a été fourni au système, aucune recherche ne peut être réalisée, veuillez recommencer";
+        include '../Views/ErrorView.php';
+        die;
+    }
 
 // création de la liste des résultats
 $listResult = array();
