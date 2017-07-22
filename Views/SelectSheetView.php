@@ -21,11 +21,14 @@ Veuillez sélectionner l'onglet sur lesquel les recherches doivent être réalis
 </table>
 </div>
     <br>
+<input type="submit" value="Suivant">
     
-Liste des mots clés qui seront utilisés pour la recherche:
+
 <br>
 <br>
 <div style="border-width: 4px;border-color:#5499c7;border-radius: 8px;border-style: solid;background-color:#eaf2f8;">
+    <br>
+Liste des mots clés qui seront utilisés pour la recherche:
 <ul>
 <?php
     foreach($listKeyWord as $keyWord)
@@ -35,5 +38,4 @@ Liste des mots clés qui seront utilisés pour la recherche:
     
 </div>
 <br>
- <input type="submit" value="Suivant">
 </form>
