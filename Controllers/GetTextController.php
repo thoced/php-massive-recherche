@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-require_once  '../../Classes/PHPExcel.php';
+require_once  '../Classes/PHPExcel.php';
 require_once  '../Models/ModelHelper.php';
 require_once  '../Models/ModelDbKeyWordHelper.php';
 

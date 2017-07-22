@@ -6,6 +6,8 @@
  * and open the template in the editor.
  */
 
+require_once 'ExceptionErrorLoad.php';
+
 class ImportModel
 {
     // chargement d'un fichier excel
@@ -22,8 +24,16 @@ class ImportModel
     {
         if($file != null)
         {
-             $this->phpExcel = PHPExcel_IOFactory::load($file);
-             $this->nameFile = $file;
+             try
+             {
+                $this->phpExcel = PHPExcel_IOFactory::load($file);
+                $this->nameFile = $file;
+                
+             }catch(PHPExcel_Reader_Exception $e)
+             {
+                throw new ExceptionErrorLoad("Le fichier n'est pas reconnu comme étant un fichier de type Tableaur (xls,xlsx,odt)");
+             }
+             
         }
         
     }

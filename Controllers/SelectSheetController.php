@@ -7,9 +7,10 @@
  */
 
 
-require_once  '../../Classes/PHPExcel.php';
+require_once  '../Classes/PHPExcel.php';
 require_once  '../Models/ModelHelper.php';
 require_once  '../Models/ModelDbKeyWordHelper.php';
+require_once  '../Models/ExceptionErrorLoad.php';
 
 session_start();
 // reception du fichier Excel
@@ -33,7 +34,15 @@ if($_FILES['fileKeyWord']['error'] > 0)
 $listKeyWord = $_FILES['fileKeyWord']['tmp_name'];
 
 // création du model d'import du fichier excel
-$modelImport = new ImportModel($fileExcel);
+try
+{
+    $modelImport = new ImportModel($fileExcel);
+}catch(ExceptionErrorLoad $e)
+{
+    $errno = $e->getMessage();
+    include "../Views/ErrorView.php";
+    die;
+}
 // création du model d'import du fichier KeyWord
 $modelKeyWord = new ImportDbKeyWord($listKeyWord);
 
