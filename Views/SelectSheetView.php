@@ -5,16 +5,19 @@ Veuillez sélectionner l'onglet sur lesquel les recherches doivent être réalis
 <div style="border-width: 4px;border-color:#5499c7;border-radius: 8px;border-style: solid;background-color:#eaf2f8;">
      <table width="100%">
          <tr>
-             <td>Onglets : </td>
-         </tr>
-         <tr>
-             <td>
+             <td width="10%">Onglets : </td> 
+             <td widht="90%">
                  <select size="10"  name="sheet">
                      <?php
                          foreach($listSheets as $sheet)
                                 echo "<option value=" . $sheet . ">" . $sheet . "</option>";
                      ?>
                  </select>
+             </td>
+         </tr>
+         <tr>
+             <td>
+                 
 
              </td>
          </tr>
