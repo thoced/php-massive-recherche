@@ -21,11 +21,14 @@ if($_FILES['fileExcel']['error'] > 0)
     die;
 }
 
-// reception du fichier keyword
-if($_FILES['fileKeyWord']['error'] > 0)
-    echo "Erreur lors du transfert (KeyWord)";
-
 $fileExcel = $_FILES['fileExcel']['tmp_name'];
+
+if($_FILES['fileKeyWord']['error'] > 0)
+{
+    $errno = "Erreur de transfert du fichier contenant les mots clés, veuillez choisir un fichier ou choisir un fichier non corrompu";
+    include '../Views/ErrorView.php';
+    die;
+}
 
 $listKeyWord = $_FILES['fileKeyWord']['tmp_name'];
 
@@ -36,6 +39,9 @@ $modelKeyWord = new ImportDbKeyWord($listKeyWord);
 
 // réception de la liste des sheets
 $listSheets = $modelImport->getSheetNames();
+// reception de la liste des keyword
+$listKeyWord = $modelKeyWord->listKeyword;
+
 
 // serialisatin et passage des objets dans la session
 $m = serialize($modelImport);
