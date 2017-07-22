@@ -1,13 +1,39 @@
 
 Veuillez sélectionner l'onglet sur lesquel les recherches doivent être réalisées<br><br>
-Onglets : 
 <form action="../Controllers/SelectColumnController.php" method="POST">
-<select size="10" name="sheet">
+    
+<div style="border-width: 4px;border-color:#5499c7;border-radius: 8px;border-style: solid;background-color:#eaf2f8;">
+     <table width="100%">
+         <tr>
+             <td>Onglets : </td>
+         </tr>
+         <tr>
+             <td>
+                 <select size="10"  name="sheet">
+                     <?php
+                         foreach($listSheets as $sheet)
+                                echo "<option value=" . $sheet . ">" . $sheet . "</option>";
+                     ?>
+                 </select>
+
+             </td>
+         </tr>
+</table>
+</div>
+    <br>
+    
+Liste des mots clés qui seront utilisés pour la recherche:
+<br>
+<br>
+<div style="border-width: 4px;border-color:#5499c7;border-radius: 8px;border-style: solid;background-color:#eaf2f8;">
+<ul>
 <?php
-    foreach($listSheets as $sheet)
-     echo "<option value=" . $sheet . ">" . $sheet . "</option>";
+    foreach($listKeyWord as $keyWord)
+        echo "<li>" . $keyWord . "</li>";
 ?>
-</select>
-    <br>    
-    <input type="submit" value="Suivant">
+</ul>
+    
+</div>
+<br>
+ <input type="submit" value="Suivant">
 </form>
