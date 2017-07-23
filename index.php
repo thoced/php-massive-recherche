@@ -39,6 +39,5 @@ and open the template in the editor.
               </form>
     </div>
         <br>
-Petite modification pour le pull request
 
 
