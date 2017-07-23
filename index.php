@@ -40,5 +40,7 @@ and open the template in the editor.
     </div>
         <br>
 
-   
+        <p style="color:#abb2b9;">Massive Analyser © <br>Développé par THONON Cédric.</p> 
+        
+        
 
