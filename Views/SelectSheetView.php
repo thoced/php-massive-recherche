@@ -10,7 +10,7 @@ Veuillez sélectionner l'onglet sur lesquel les recherches doivent être réalis
                  <select size="10"  name="sheet">
                      <?php
                          foreach($listSheets as $sheet)
-                                echo "<option value=" . $sheet . ">" . $sheet . "</option>";
+                                echo "<option value='" . trim($sheet) . "'>" . $sheet . "</option>";
                      ?>
                  </select>
              </td>
