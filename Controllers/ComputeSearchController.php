@@ -48,7 +48,7 @@ $modelKeyWord = unserialize($mk);
 $listResult = array();
 $id = 0;
 // compute (comparaison de la listText avec la listeKeyword
- while($text = current($listText))
+ while(($text = current($listText)) !== FALSE)
 {
     foreach($listKeyword as $keyword)
     {
