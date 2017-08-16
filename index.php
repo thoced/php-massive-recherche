@@ -10,8 +10,39 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <?php
-        // put your code here
-        ?>
+
+
+        
+        <h1> Massive Analyser </h1><br>
+    <div style="border-width: 4px;border-color: #5499c7;border-radius: 8px;border-style: solid; background-color:#eaf2f8;">
+        <form action="./Controllers/SelectSheetController.php" method="POST" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>Veuillez sélectionner le fichier à analyser </td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td>  Fichier extraction GSM (format Excel) </td>
+                <td> <input type="file" name="fileExcel"></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td>  Fichier de mots clés (format Texte) </td>
+                <td> <input type="file" name="fileKeyWord"></td>
+            </tr>
+             <tr>
+                <td><input type="submit" ></td>
+            </tr>
+        </table>
+              </form>
+    </div>
+        <br>
+
+        <p style="color:#abb2b9;">Massive Analyser © <br>Développé par THONON Cédric.</p> 
+        
     </body>
 </html>
