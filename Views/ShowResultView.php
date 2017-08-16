@@ -1,5 +1,8 @@
 <h1 style="text-align: center;">Résultat des recherches</h1>
-
+<br>
+<a href="../index.php">Faire une nouvelle recherche</a>
+<br>
+<br>
 <div style="border-width: 4px;border-color:#5499c7;border-radius: 8px;border-style: solid; background-color:#eaf2f8; overflow:auto;">
 <table width="80%">
     <tr>
