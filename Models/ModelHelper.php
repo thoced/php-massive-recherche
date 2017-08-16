@@ -88,12 +88,12 @@ class ImportModel
          $itRow = $this->selectedSheet->getRowIterator();
          $itRow->rewind(); // premiere row
          $itRow->next();   // on passe à la seconde ligne pour ne pas copier les labels de la premiere ligne
-               
+           
          while($itRow->valid())
          {
              $row = $itRow->current();
              $cellIt = $row->getCellIterator($startColumn,$startColumn);
-             $cellIt->rewind();
+             //$cellIt->rewind();
              while($cellIt->valid())
              {
                  $c = $cellIt->current();
